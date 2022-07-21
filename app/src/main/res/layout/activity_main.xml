@@ -4,15 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/peakpx"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/the"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/playfairdisplay_bold"
+        android:text="The"
+        app:layout_constraintStart_toStartOf="@id/mars"
+        app:layout_constraintBottom_toTopOf="@id/mars"/>
+
+    <TextView
+        android:id="@+id/mars"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="80dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/playfairdisplay_bold"
+        android:text="Mars"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
