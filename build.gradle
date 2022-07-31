@@ -1,10 +1,67 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+    }
+}
+
 plugins {
-    id 'com.android.application' version '7.2.0' apply false
-    id 'com.android.library' version '7.2.0' apply false
+    id 'com.android.application' version '7.1.2' apply false
+    id 'com.android.library' version '7.1.2' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    retrofitVersion = "2.9.0"
+    okhttpVersion = "4.9.3"
+    chuckerVersion = "3.5.2"
+    hiltVersion = "2.38.1"
+    gsonVersion = "2.9.0"
+    timberVersion = "5.0.1"
+    rxJavaVersion = "3.1.4"
+    rxKotlinVersion = "3.0.1"
+    rxAndroidVersion = "3.0.0"
+
+    commonLibraries = [
+            rxJava   : "io.reactivex.rxjava3:rxjava:${rxJavaVersion}",
+            rxKotlin : "io.reactivex.rxjava3:rxkotlin:${rxKotlinVersion}",
+            rxAndroid: "io.reactivex.rxjava3:rxandroid:${rxAndroidVersion}",
+    ]
+
+    networkLibraries = [
+            retrofit               : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverterGson  : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitConverterScalar: "com.squareup.retrofit2:converter-scalars:${retrofitVersion}",
+            retrofitRxJava3Adapter : "com.squareup.retrofit2:adapter-rxjava3:${retrofitVersion}",
+
+            okhttp                 : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            okhttpInterceptor      : "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}",
+
+            chuckerDebug           : "com.github.chuckerteam.chucker:library:${chuckerVersion}",
+            chuckerRelease         : "com.github.chuckerteam.chucker:library-no-op:${chuckerVersion}",
+    ]
+
+    hiltLibraries = [
+            hiltAndroid : "com.google.dagger:hilt-android:${hiltVersion}",
+            hiltCompiler: "com.google.dagger:hilt-compiler:${hiltVersion}"
+    ]
+
+    googleLibraries = [
+            gson: "com.google.code.gson:gson:${gsonVersion}"
+    ]
+
+    squareLibraries = [
+            timber: "com.jakewharton.timber:timber:${timberVersion}"
+    ]
+
 }

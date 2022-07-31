@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Unit-Testing"
 include ':app'
+include ':core:configs'
+include ':utilities:base-framework'
+include ':utilities:network'
+include ':core:storage'
